@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "pm2 start lib/server.js --watch --interpreter babel-node",
     "wepback": "webpack ",
-    "test":"jest --watch"
+    "test": "jest --watch"
   },
   "babel": {
     "presets": [
@@ -36,6 +36,7 @@
     "pm2": "^3.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-test-renderer": "^16.4.1",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.0.8",
     "webpack-command": "^0.4.1"
