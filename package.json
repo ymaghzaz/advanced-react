@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "pm2 start lib/server.js --watch --interpreter babel-node",
-    "wepback": "webpack "
+    "wepback": "webpack ",
+    "test":"jest --watch"
   },
   "babel": {
     "presets": [
@@ -20,7 +21,8 @@
   "devDependencies": {
     "babel-eslint": "^8.2.6",
     "eslint": "^5.1.0",
-    "eslint-plugin-react": "^7.10.0"
+    "eslint-plugin-react": "^7.10.0",
+    "jest": "^23.4.1"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
