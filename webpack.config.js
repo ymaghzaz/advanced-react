@@ -1,9 +1,15 @@
 const path = require('path');
 
 module.exports = {
+  resolve:{
+    modules:[
+      path.resolve('./lib'),
+      path.resolve('./node_modules')
+    ]
+  },
   mode: 'development',
   watch: true,
-  entry:['babel-polyfill','./lib/components/index.js'],
+  entry:['babel-polyfill','renderers/dom.js'],
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js'

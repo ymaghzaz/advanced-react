@@ -86,18 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./lib/DataApi.js":
-/*!************************!*\
-  !*** ./lib/DataApi.js ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar DataApi = function () {\n  function DataApi(rawData) {\n    _classCallCheck(this, DataApi);\n\n    this.rawData = rawData;\n  }\n\n  _createClass(DataApi, [{\n    key: \"mapIntoObject\",\n    value: function mapIntoObject(arr) {\n      return arr.reduce(function (acc, curr) {\n        acc[curr.id] = curr;\n        return acc;\n      }, {});\n    }\n  }, {\n    key: \"getArticles\",\n    value: function getArticles() {\n      return this.mapIntoObject(this.rawData.articles);\n    }\n  }, {\n    key: \"getAuthors\",\n    value: function getAuthors() {\n      return this.mapIntoObject(this.rawData.authors);\n    }\n  }]);\n\n  return DataApi;\n}();\n\nexports.default = DataApi;\n\n//# sourceURL=webpack:///./lib/DataApi.js?");
-
-/***/ }),
-
 /***/ "./lib/components/App.js":
 /*!*******************************!*\
   !*** ./lib/components/App.js ***!
@@ -106,7 +94,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _ArticleList = __webpack_require__(/*! ./ArticleList */ \"./lib/components/ArticleList.js\");\n\nvar _ArticleList2 = _interopRequireDefault(_ArticleList);\n\nvar _DataApi = __webpack_require__(/*! ../DataApi */ \"./lib/DataApi.js\");\n\nvar _DataApi2 = _interopRequireDefault(_DataApi);\n\nvar _testData = __webpack_require__(/*! ../testData */ \"./lib/testData.json\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar api = new _DataApi2.default(_testData.data);\n\nvar App = function (_React$Component) {\n  _inherits(App, _React$Component);\n\n  function App() {\n    _classCallCheck(this, App);\n\n    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));\n\n    _this.articleActions = {\n      lookupAuthor: function lookupAuthor(authorId) {\n        return _this.state.authors[authorId];\n      }\n    };\n\n    _this.state = {\n      articles: api.getArticles(),\n      authors: api.getAuthors()\n    };\n    return _this;\n  }\n\n  _createClass(App, [{\n    key: 'render',\n    value: function render() {\n      return _react2.default.createElement(_ArticleList2.default, {\n        articles: this.state.articles,\n        articleActions: this.articleActions\n      });\n    }\n  }]);\n\n  return App;\n}(_react2.default.Component);\n\nexports.default = App;\n\n//# sourceURL=webpack:///./lib/components/App.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _ArticleList = __webpack_require__(/*! ./ArticleList */ \"./lib/components/ArticleList.js\");\n\nvar _ArticleList2 = _interopRequireDefault(_ArticleList);\n\nvar _stateApi = __webpack_require__(/*! state-api */ \"./lib/state-api/lib/index.js\");\n\nvar _stateApi2 = _interopRequireDefault(_stateApi);\n\nvar _testData = __webpack_require__(/*! ../testData */ \"./lib/testData.json\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar api = new _stateApi2.default(_testData.data);\n\nvar App = function (_React$Component) {\n  _inherits(App, _React$Component);\n\n  function App() {\n    _classCallCheck(this, App);\n\n    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));\n\n    _this.articleActions = {\n      lookupAuthor: function lookupAuthor(authorId) {\n        return _this.state.authors[authorId];\n      }\n    };\n\n    _this.state = {\n      articles: api.getArticles(),\n      authors: api.getAuthors()\n    };\n    return _this;\n  }\n\n  _createClass(App, [{\n    key: 'render',\n    value: function render() {\n      return _react2.default.createElement(_ArticleList2.default, {\n        articles: this.state.articles,\n        articleActions: this.articleActions\n      });\n    }\n  }]);\n\n  return App;\n}(_react2.default.Component);\n\nexports.default = App;\n\n//# sourceURL=webpack:///./lib/components/App.js?");
 
 /***/ }),
 
@@ -134,15 +122,27 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 /***/ }),
 
-/***/ "./lib/components/index.js":
-/*!*********************************!*\
-  !*** ./lib/components/index.js ***!
-  \*********************************/
+/***/ "./lib/renderers/dom.js":
+/*!******************************!*\
+  !*** ./lib/renderers/dom.js ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _App = __webpack_require__(/*! ./App */ \"./lib/components/App.js\");\n\nvar _App2 = _interopRequireDefault(_App);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));\n\n//# sourceURL=webpack:///./lib/components/index.js?");
+eval("\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _App = __webpack_require__(/*! ../components/App */ \"./lib/components/App.js\");\n\nvar _App2 = _interopRequireDefault(_App);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));\n\n//# sourceURL=webpack:///./lib/renderers/dom.js?");
+
+/***/ }),
+
+/***/ "./lib/state-api/lib/index.js":
+/*!************************************!*\
+  !*** ./lib/state-api/lib/index.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar DataApi = function () {\n  function DataApi(rawData) {\n    _classCallCheck(this, DataApi);\n\n    this.rawData = rawData;\n  }\n\n  _createClass(DataApi, [{\n    key: \"mapIntoObject\",\n    value: function mapIntoObject(arr) {\n      return arr.reduce(function (acc, curr) {\n        acc[curr.id] = curr;\n        return acc;\n      }, {});\n    }\n  }, {\n    key: \"getArticles\",\n    value: function getArticles() {\n      return this.mapIntoObject(this.rawData.articles);\n    }\n  }, {\n    key: \"getAuthors\",\n    value: function getAuthors() {\n      return this.mapIntoObject(this.rawData.authors);\n    }\n  }]);\n\n  return DataApi;\n}();\n\nexports.default = DataApi;\n\n//# sourceURL=webpack:///./lib/state-api/lib/index.js?");
 
 /***/ }),
 
@@ -4099,13 +4099,13 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /***/ }),
 
 /***/ 0:
-/*!******************************************************!*\
-  !*** multi babel-polyfill ./lib/components/index.js ***!
-  \******************************************************/
+/*!*********************************************!*\
+  !*** multi babel-polyfill renderers/dom.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! babel-polyfill */\"./node_modules/babel-polyfill/lib/index.js\");\nmodule.exports = __webpack_require__(/*! ./lib/components/index.js */\"./lib/components/index.js\");\n\n\n//# sourceURL=webpack:///multi_babel-polyfill_./lib/components/index.js?");
+eval("__webpack_require__(/*! babel-polyfill */\"./node_modules/babel-polyfill/lib/index.js\");\nmodule.exports = __webpack_require__(/*! renderers/dom.js */\"./lib/renderers/dom.js\");\n\n\n//# sourceURL=webpack:///multi_babel-polyfill_renderers/dom.js?");
 
 /***/ })
 
